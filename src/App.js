@@ -13,6 +13,14 @@ class App extends React.Component {
     this.expenseType = ''
   }
 
+  componentDidMount() {
+      let localExpenseList = localStorage.getItem('expenseList')
+      let jsonParsed = JSON.parse(localExpenseList)
+      if(jsonParsed && jsonParsed.length) {
+        this.setState({expenseList: jsonParsed})
+      }
+  }
+
   addExpense = () => {
     let amount = document.querySelector('#amount')
     let description = document.querySelector('#description')
@@ -25,6 +33,7 @@ class App extends React.Component {
       expenseDate: expenseDate.value,
     }
     this.state.expenseList.push(incomeObject)
+    localStorage.setItem("expenseList", JSON.stringify(this.state.expenseList))
     this.setState({ 
       expenseList: this.state.expenseList,
       openForm: false
@@ -33,6 +42,7 @@ class App extends React.Component {
 
   deleteExpense = (order) => {
     this.state.expenseList.splice(order - 1, 1)
+    localStorage.setItem("expenseList", JSON.stringify(this.state.expenseList))
     this.setState({expenseList: this.state.expenseList})
   }
 
@@ -62,8 +72,8 @@ class App extends React.Component {
         <div className="header">
           <span className="balance-label">Balance</span>
           <h1 className="balance">{balance} INR</h1>
-          <span className="income-label"> Income: {income}</span>
-          <span className="spending-label">Spending: {spending}</span>
+          <span className="income-label"> Income: {income} INR</span>
+          <span className="spending-label">Spending: {spending} INR</span>
         </div>
         {!!this.state.expenseList.length &&
           <ExpenseComponent

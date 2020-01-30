@@ -1,38 +1,146 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   text-align: center;
+  width: 500px;
+  height: 95vh;
+  border: 1px solid black;
+  margin: 0 auto;
+  overflow: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  background-color: #e0e0e0;
+  height: 20%;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header .balance-label {
+  float: left;
+  color: gray;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header .balance {
+  float: left;
+  clear: both;
+  color: black;
+  font-size: 25px;
+}
+
+.income-label {
+  float: left;
+  clear: both;
+  color: green;
+  font-weight: 600;
+}
+
+.spending-label {
+  float: left;
+  color: red;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.add-income {
+  
   color: white;
+  width: 100px;
+  background-color: green;
+  border: 2px solid black;
+  margin: 20px;
+  height: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.add-expense {
+  color: white;
+  background-color: red;
+  border: 2px solid black;
+  margin: 20px;
+  width: 100px;
+  height: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-form {
+  margin: 30px;
+}
+
+#exp-date,
+#amount,
+#description {
+  width: 20%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  margin: 5px;
+  float: left;
+}
+
+#description {
+  width: 40%;
+}
+
+.add-button {
+  background-color: lightblue;
+  border: 2px solid black;
+  margin: 5px;
+}
+
+.expense-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+
+.expense-list li {
+  border-bottom: 2px solid black;
+  height: 60px;
+  padding: 5px;
+}
+
+.expense-list li .date-show {
+    float: left;
+    color: gray;
+    font-size: 14px;
+    width: 20%
+}
+
+.expense-list li .date-show {
+  float: left;
+  color: gray;
+  font-size: 14px;
+  width: 20%;
+}
+
+.expense-list li .amount-show {
+  float: left;
+  clear: both;
+  color: gray;
+  font-size: 26px;
+  width: 20%;
+}
+
+.expense-list li .amount-show.income {
+  color: green;
+}
+
+.expense-list li .amount-show.spend {
+  color: red;
+}
+
+.expense-list li .description-show {
+  float: left;
+  width: 60%;
+  margin-top: 10px;
+}
+
+.expense-list li .delete {
+  float: right;
+  height: 30px;
+  margin-right: 10px;
 }
